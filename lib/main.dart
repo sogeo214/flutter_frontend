@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'screens/home/home.dart';
-
+import 'screens/auth/login.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,10 +20,7 @@ class MyApp extends StatelessWidget {
       ),
 
       // 👉 ចាប់ផ្តើម App នៅ Home Page
-      home: const HomeScreen(),
-
-      // 🔁 បើអ្នកចង់ចាប់ផ្តើមពី Login Screen
-      // home: const LoginScreen(),
+      home: const LoginScreen(),
     );
   }
 }
