@@ -1,10 +1,12 @@
 class Product {
+  final int id;
   final String name;
   final double price;
   final String? image_url;
   final Discount? discount;
 
   Product({
+    required this.id,
     required this.name,
     required this.price,
     this.image_url,
@@ -23,6 +25,7 @@ class Product {
 
   factory Product.fromJson(Map<String, dynamic> json) {
     return Product(
+      id: json['id'],
       name: json['name'],
       price: (json['price'] as num).toDouble(),
       image_url: json['image_url'],

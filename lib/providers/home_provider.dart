@@ -9,14 +9,14 @@ class HomeProvider extends ChangeNotifier {
 
   List<Category> categories = [];
   List<Product> products = [];
-  Business? business; // nullable to start
+  Business? business;
 
   String selectedCategory = "All";
   String searchQuery = "";
-  bool loading = true; // start as loading
+  bool loading = true;
 
   HomeProvider() {
-    init(); // load data immediately
+    init();
   }
 
   Future<void> init() async {
@@ -50,13 +50,23 @@ class HomeProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  /// CATEGORY SELECT
   void selectCategory(String category) {
     selectedCategory = category;
-    fetchHomeData(category: category, search: searchQuery);
+
+    fetchHomeData(
+      category: category == "All" ? null : category,
+      search: searchQuery.isEmpty ? null : searchQuery,
+    );
   }
 
+  /// SEARCH
   void search(String query) {
     searchQuery = query;
-    fetchHomeData(category: selectedCategory, search: query);
+
+    fetchHomeData(
+      category: selectedCategory == "All" ? null : selectedCategory,
+      search: query.isEmpty ? null : query,
+    );
   }
 }
